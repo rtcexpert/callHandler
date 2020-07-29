@@ -1,8 +1,13 @@
 {
   "drachtio": {
-    "host": "10.10.10.1",
+    "host": "127.0.0.1",
     "port": 9022,
-    "secret": "slash123"
+    "secret": "rahul123"
+  },
+  "freeswitch": {
+    "address": "127.0.0.1",
+    "port": 8021,
+    "secret": "rahul123"
   },
   "rtpengine": {
     "host": "10.10.10.1",
@@ -17,7 +22,7 @@
   },
   "domains": [
     {
-      "name": "78.159.98.27",
+      "name": "146.71.79.214",
       "users": [
         {
           "username": "123",

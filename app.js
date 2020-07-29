@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== 'test') {
 const mrf = new Mrf(srf);
 // we're connecting to the Freeswitch event socket
 mrf.connect(
-  { address: "127.0.0.1", port: 8021, secret: "rahul123" },
+  config.get('freeswitch'),
   (err, ms) => { console.log(err);  srf.locals.ms = ms; } );
 // middleware
 srf.use('register', [digestChallenge(logger), regParser]);
