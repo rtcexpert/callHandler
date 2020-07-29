@@ -4,6 +4,7 @@ const config = require('config');
 const logger = require('pino')(config.get('logging'));
 const regParser = require('drachtio-mw-registration-parser') ;
 const {digestChallenge} = require('./lib/middleware');
+const Mrf = require("drachtio-fsmrf");
 const Registrar = require('./lib/registrar');
 srf.locals.registrar = new Registrar(logger);
 
@@ -25,6 +26,11 @@ if (process.env.NODE_ENV !== 'test') {
   srf.on('error', (err) => logger.error(err));
 }
 
+const mrf = new Mrf(srf);
+// we're connecting to the Freeswitch event socket
+mrf.connect(
+  { address: "127.0.0.1", port: 8021, secret: "rahul123" },
+  (err, ms) => { console.log(err);  srf.locals.ms = ms; } );
 // middleware
 srf.use('register', [digestChallenge(logger), regParser]);
 srf.use('invite', digestChallenge(logger));

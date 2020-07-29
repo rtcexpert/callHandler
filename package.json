@@ -22,6 +22,7 @@
     "clear-require": "^3.0.0",
     "config": "^3.3.1",
     "debug": "^4.1.1",
+    "drachtio-fsmrf": "^2.0.1",
     "drachtio-mw-digest-auth": "^0.3.3",
     "drachtio-mw-registration-parser": "^0.1.0",
     "drachtio-srf": "^4.4.36",

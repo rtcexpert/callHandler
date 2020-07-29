@@ -1,0 +1,67 @@
+{
+  "drachtio": {
+    "host": "10.10.10.1",
+    "port": 9022,
+    "secret": "slash123"
+  },
+  "rtpengine": {
+    "host": "10.10.10.1",
+    "port": 25061
+  },
+  "redis" : {
+    "address": "127.0.0.1",
+    "port": 6379
+  },
+  "logging": {
+    "level": "info"
+  },
+  "domains": [
+    {
+      "name": "78.159.98.27",
+      "users": [
+        {
+          "username": "123",
+          "password": "123",
+          "dids": ["9192059315"]
+        },
+        {
+          "username": "456",
+          "password": "bar"
+        },
+        {
+          "username": "789",
+          "password": "baz",
+          "dids": ["9192059602"]
+        }
+      ]   
+    }
+  ],
+  "sip-trunks": {
+    "outbound": {
+      "host": "your-outbound-sip-trunking-provider-ip",
+      "port": 5060,
+      "default-ani": "+15052221234",
+      "auth": {
+        "username": "foo",
+        "password": "bar"
+      }
+    },
+    "inbound" : ["an-inbound-carrier-ip", "another-inbound-carrier-ip"]
+  },
+  "transcoding": {
+    "rtpCharacteristics" : {
+      "transport protocol": "RTP/AVP",
+      "DTLS": "off",
+      "SDES": "off",
+      "ICE": "remove",
+      "rtcp-mux": ["demux"]
+    },
+    "srtpCharacteristics": {
+      "transport-protocol": "UDP/TLS/RTP/SAVPF",
+      "ICE": "force",
+      "SDES": "off",
+      "flags": ["generate mid", "SDES-no"],
+      "rtcp-mux": ["require"]
+    } 
+  }
+}
